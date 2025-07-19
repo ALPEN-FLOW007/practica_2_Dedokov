@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     int totalPay;
 
-    cout << "— áë\tŽ¯« â  (àã¡)\n";
+    cout << "Ð§Ð°ÑÑ‹\tÐžÐ¿Ð»Ð°Ñ‚Ð° (Ñ€ÑƒÐ±)\n";
     for (int hours = 1; hours <= 24; ++hours) {
         totalPay = 0;
         int rate = 25;
