@@ -23,7 +23,7 @@ int main() {
 
     for (double eps : epsilons) {
         double pi = Pi(eps);
-        cout << "Pi �� ? = " << eps << " ? " << pi << endl;
+        cout << "Pi при эпселон = " << eps << " ? " << pi << endl;
     }
 
     return 0;
