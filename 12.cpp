@@ -7,33 +7,34 @@ using namespace std;
 struct Student {
     string name;
     string surname;
-    int year;     // £Æ§ Æ°„Á•≠®Ô, ≠†Ø‡®¨•‡ 5
-    char letter;  // °„™¢† ™´†··†, ≠†Ø‡®¨•‡ 'A'
+    int year; 1
+    
+    char letter;
 };
 
-// ‰„≠™Ê®Ô §Æ°†¢´•≠®Ô ≠Æ¢Æ£Æ „Á•≠®™†
+// —Ñ—É–Ω–∫—Ü–∏—è –¥–æ–±–∞–≤–ª–µ–Ω–∏—è –Ω–æ–≤–æ–≥–æ —É—á–µ–Ω–∏–∫–∞
 void addStudent(vector<Student>& students) {
     Student s;
-    cout << "Ç¢•§®‚• ®¨Ô: ";
+    cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è: ";
     cin >> s.name;
-    cout << "Ç¢•§®‚• ‰†¨®´®Ó: ";
+    cout << "–í–≤–µ–¥–∏—Ç–µ —Ñ–∞–º–∏–ª–∏—é: ";
     cin >> s.surname;
-    cout << "Ç¢•§®‚• £Æ§ Æ°„Á•≠®Ô (≠†Ø‡®¨•‡ 5): ";
+    cout << "–í–≤–µ–¥–∏—Ç–µ –≥–æ–¥ –æ–±—É—á–µ–Ω–∏—è (–Ω–∞–ø—Ä–∏–º–µ—Ä 5): ";
     cin >> s.year;
-    cout << "Ç¢•§®‚• °„™¢„ ™´†··†: ";
+    cout << "–í–≤–µ–¥–∏—Ç–µ –±—É–∫–≤—É –∫–ª–∞—Å—Å–∞: ";
     cin >> s.letter;
     students.push_back(s);
 }
 
-// ‰„≠™Ê®Ô ¢Î¢Æ§† ®≠‰Æ‡¨†Ê®® Æ° Æ§≠Æ¨ „Á•≠®™•
+// —Ñ—É–Ω–∫—Ü–∏—è –≤—ã–≤–æ–¥–∞ –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–∏ –æ–± –æ–¥–Ω–æ–º —É—á–µ–Ω–∏–∫–µ
 void printStudent(const Student& s) {
-    cout << s.name << " " << s.surname << " ? "
-        << s.year << s.letter << " ™´†··" << endl;
+    cout << s.name << " " << s.surname << " ‚Äî "
+        << s.year << s.letter << " –∫–ª–∞—Å—Å" << endl;
 }
 
-// ‰„≠™Ê®Ô ¢Î¢Æ§† ¢·•© ®≠‰Æ‡¨†Ê®®
+// —Ñ—É–Ω–∫—Ü–∏—è –≤—ã–≤–æ–¥–∞ –≤—Å–µ–π –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–∏
 void printAll(const vector<Student>& students) {
-    cout << "\n=== ëØ®·Æ™ „Á•≠®™Æ¢ ===\n";
+    cout << "\n=== –°–ø–∏—Å–æ–∫ —É—á–µ–Ω–∏–∫–æ–≤ ===\n";
     for (auto& s : students) {
         printStudent(s);
     }
@@ -44,24 +45,24 @@ void classesMoreThanN(const vector<Student>& students, int n) {
     for (auto& s : students) {
         counts[{s.year, s.letter}]++;
     }
-    cout << "\n=== ä´†··Î, £§• °Æ´ÏË• Á•¨ " << n << " „Á•≠®™Æ¢ ===\n";
+    cout << "\n=== –ö–ª–∞—Å—Å—ã, –≥–¥–µ –±–æ–ª—å—à–µ —á–µ–º " << n << " —É—á–µ–Ω–∏–∫–æ–≤ ===\n";
     for (auto& kv : counts) {
         if (kv.second > n) {
             cout << kv.first.first << kv.first.second
-                << " ™´†··: " << kv.second << " „Á•≠®™Æ¢\n";
+                << " –∫–ª–∞—Å—Å: " << kv.second << " —É—á–µ–Ω–∏–∫–æ–≤\n";
         }
     }
 }
 
-// ‰„≠™Ê®Ô: ·™Æ´Ï™Æ Á•´Æ¢•™ „Á®‚·Ô ¢ ™†¶§Æ© Ø†‡†´´•´®
+// —Ñ—É–Ω–∫—Ü–∏—è: —Å–∫–æ–ª—å–∫–æ —á–µ–ª–æ–≤–µ–∫ —É—á–∏—Ç—Å—è –≤ –∫–∞–∂–¥–æ–π –ø–∞—Ä–∞–ª–ª–µ–ª–∏
 void countParallels(const vector<Student>& students) {
     map<int, int> counts;
     for (auto& s : students) {
         counts[s.year]++;
     }
-    cout << "\n=== äÆ´®Á•·‚¢Æ „Á•≠®™Æ¢ ØÆ Ø†‡†´´•´Ô¨ ===\n";
+    cout << "\n=== –ö–æ–ª–∏—á–µ—Å—Ç–≤–æ —É—á–µ–Ω–∏–∫–æ–≤ –ø–æ –ø–∞—Ä–∞–ª–ª–µ–ª—è–º ===\n";
     for (auto& kv : counts) {
-        cout << kv.first << " ™´†··: " << kv.second << " „Á•≠®™Æ¢\n";
+        cout << kv.first << " –∫–ª–∞—Å—Å: " << kv.second << " —É—á–µ–Ω–∏–∫–æ–≤\n";
     }
 }
 
@@ -70,13 +71,13 @@ int main() {
 
     int choice;
     do {
-        cout << "\nå•≠Ó:\n";
-        cout << "1 - ÑÆ°†¢®‚Ï „Á•≠®™†\n";
-        cout << "2 - ÇÎ¢•·‚® ¢·•Â „Á•≠®™Æ¢\n";
-        cout << "3 - è‡Æ¢•‡®‚Ï ™´†··Î · Á®·´Æ¨ „Á•≠®™Æ¢ °Æ´ÏË• N\n";
-        cout << "4 - èÆ·Á®‚†‚Ï ™Æ´®Á•·‚¢Æ „Á•≠®™Æ¢ ØÆ Ø†‡†´´•´Ô¨\n";
-        cout << "0 - ÇÎÂÆ§\n";
-        cout << "Ç†Ë ¢Î°Æ‡: ";
+        cout << "\n–ú–µ–Ω—é:\n";
+        cout << "1 - –î–æ–±–∞–≤–∏—Ç—å —É—á–µ–Ω–∏–∫–∞\n";
+        cout << "2 - –í—ã–≤–µ—Å—Ç–∏ –≤—Å–µ—Ö —É—á–µ–Ω–∏–∫–æ–≤\n";
+        cout << "3 - –ü—Ä–æ–≤–µ—Ä–∏—Ç—å –∫–ª–∞—Å—Å—ã —Å —á–∏—Å–ª–æ–º —É—á–µ–Ω–∏–∫–æ–≤ –±–æ–ª—å—à–µ N\n";
+        cout << "4 - –ü–æ—Å—á–∏—Ç–∞—Ç—å –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ —É—á–µ–Ω–∏–∫–æ–≤ –ø–æ –ø–∞—Ä–∞–ª–ª–µ–ª—è–º\n";
+        cout << "0 - –í—ã—Ö–æ–¥\n";
+        cout << "–í–∞—à –≤—ã–±–æ—Ä: ";
         cin >> choice;
 
         if (choice == 1) {
@@ -87,7 +88,7 @@ int main() {
         }
         else if (choice == 3) {
             int n;
-            cout << "Ç¢•§®‚• N: ";
+            cout << "–í–≤–µ–¥–∏—Ç–µ N: ";
             cin >> n;
             classesMoreThanN(students, n);
         }
