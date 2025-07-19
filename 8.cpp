@@ -2,14 +2,13 @@
 #include <cmath>
 using namespace std;
 
-// ”ã­ªæ¨ï ¤«ï ­ å®¦¤¥­¨ï áà¥¤­¥£®
+//Ð¡Ñ€ÐµÐ´Ð½Ð¸Ð¹
 double avgTemp(int t[], int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) sum += t[i];
     return sum / n;
 }
 
-// ”ã­ªæ¨ï ¤«ï ­ å®¦¤¥­¨ï ¤­ï á â¥¬¯¥à âãà®© ¡«¨¦¥ ¢á¥£® ª áà¥¤­¥©
 int closestDay(int t[], int n, double avg) {
     int day = 0;
     double diff = fabs(t[0] - avg);
@@ -20,24 +19,24 @@ int closestDay(int t[], int n, double avg) {
             day = i;
         }
     }
-    return day + 1; // ¤­¨ ­ ç¨­ ¥¬ á 1
+    return day + 1; 
 }
 
 int main() {
-    const int days = 31;      // ¬ àâ
+    const int days = 31;      
     int temp[days];
 
-    cout << "‚¢¥¤¨â¥ áà¥¤­¥áãâ®ç­ë¥ â¥¬¯¥à âãàë §  ¬ àâ:\n";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÑ€ÐµÐ´Ð½ÐµÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ðµ Ñ‚ÐµÐ¼Ð¿ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñ‹ Ð·Ð° Ð¼Ð°Ñ€Ñ‚:\n";
     for (int i = 0; i < days; i++) {
-        cout << "„¥­ì " << i + 1 << ": ";
+        cout << "Ð”ÐµÐ½ÑŒ " << i + 1 << ": ";
         cin >> temp[i];
     }
 
     double avg = avgTemp(temp, days);
     int day = closestDay(temp, days, avg);
 
-    cout << "‘à¥¤­ïï â¥¬¯¥à âãà  ¬¥áïæ : " << avg << "\n";
-    cout << "„¥­ì, ¡«¨¦¥ ¢á¥£® ª áà¥¤­¥©: " << day << "\n";
+    cout << "Ð¡Ñ€ÐµÐ´Ð½ÑÑ Ñ‚ÐµÐ¼Ð¿ÐµÑ€Ð°Ñ‚ÑƒÑ€Ð° Ð·Ð° Ð¼ÐµÑÑÑ†Â : " << avg << "\n";
+    cout << "Ð”ÐµÐ½ÑŒ, Ð±Ð»Ð¸Ð¶Ðµ Ðº ÑÑ€ÐµÐ´Ð½ÐµÐ¹ Ñ‚ÐµÐ¼Ð¿ÐµÑ€Ð°Ñ‚ÑƒÑ€Ðµ: " << day << "\n";
 
     return 0;
 }
