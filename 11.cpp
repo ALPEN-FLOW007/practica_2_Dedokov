@@ -4,7 +4,6 @@
 #include <string>
 using namespace std;
 
-// ===== функция загрузки цен =====
 void loadPrices(map<string, int>& prices, const string& priceFile) {
     ifstream fin(priceFile);
     string veg;
@@ -15,10 +14,9 @@ void loadPrices(map<string, int>& prices, const string& priceFile) {
     fin.close();
 }
 
-// ===== функция загрузки накопленного урожая =====
 void loadHarvest(map<string, int>& harvest, const string& harvestFile) {
     ifstream fin(harvestFile);
-    if (!fin.is_open()) return; // если файл пустой или не создан
+    if (!fin.is_open()) return;
     string veg;
     int amount;
     while (fin >> veg >> amount) {
@@ -27,7 +25,6 @@ void loadHarvest(map<string, int>& harvest, const string& harvestFile) {
     fin.close();
 }
 
-// ===== функция сохранения обновленного урожая =====
 void saveHarvest(const map<string, int>& harvest, const string& harvestFile) {
     ofstream fout(harvestFile);
     for (auto& p : harvest) {
@@ -36,7 +33,6 @@ void saveHarvest(const map<string, int>& harvest, const string& harvestFile) {
     fout.close();
 }
 
-// ===== функция расчёта оплаты =====
 void calcPayment(const map<string, int>& harvest, const map<string, int>& prices) {
     int total = 0;
     cout << "\n=== Итоги сбора и оплата ===\n";
@@ -50,15 +46,14 @@ void calcPayment(const map<string, int>& harvest, const map<string, int>& prices
 }
 
 int main() {
-    setlocale(LC_ALL, ""); // чтобы русские буквы нормально выводились
+    setlocale(LC_ALL, "");
 
-    string priceFile = "prices.txt";    // ← укажи путь к файлу с ценами
-    string harvestFile = "harvest.txt"; // ← укажи путь к файлу с урожаем
+    string priceFile = "prices.txt";
+    string harvestFile = "harvest.txt";
 
     map<string, int> prices;
     map<string, int> harvest;
 
-    // загрузить данные
     loadPrices(prices, priceFile);
     loadHarvest(harvest, harvestFile);
 
@@ -67,13 +62,11 @@ int main() {
         cout << "Сколько собрали (" << p.first << "): ";
         int today;
         cin >> today;
-        harvest[p.first] += today; // добавляем к общему количеству
+        harvest[p.first] += today;
     }
 
-    // сохранить обновлённые данные
     saveHarvest(harvest, harvestFile);
 
-    // показать расчёт оплаты
     calcPayment(harvest, prices);
 
     return 0;
